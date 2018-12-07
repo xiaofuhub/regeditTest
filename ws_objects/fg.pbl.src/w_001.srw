@@ -2,6 +2,8 @@
 forward
 global type w_001 from window
 end type
+type cb_2 from commandbutton within w_001
+end type
 type vsb_1 from vscrollbar within w_001
 end type
 type hsb_1 from hscrollbar within w_001
@@ -28,6 +30,7 @@ boolean resizable = true
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
+cb_2 cb_2
 vsb_1 vsb_1
 hsb_1 hsb_1
 vtb_1 vtb_1
@@ -38,13 +41,15 @@ end type
 global w_001 w_001
 
 on w_001.create
+this.cb_2=create cb_2
 this.vsb_1=create vsb_1
 this.hsb_1=create hsb_1
 this.vtb_1=create vtb_1
 this.htb_1=create htb_1
 this.tv_1=create tv_1
 this.cb_1=create cb_1
-this.Control[]={this.vsb_1,&
+this.Control[]={this.cb_2,&
+this.vsb_1,&
 this.hsb_1,&
 this.vtb_1,&
 this.htb_1,&
@@ -53,6 +58,7 @@ this.cb_1}
 end on
 
 on w_001.destroy
+destroy(this.cb_2)
 destroy(this.vsb_1)
 destroy(this.hsb_1)
 destroy(this.vtb_1)
@@ -60,6 +66,21 @@ destroy(this.htb_1)
 destroy(this.tv_1)
 destroy(this.cb_1)
 end on
+
+type cb_2 from commandbutton within w_001
+integer x = 969
+integer y = 212
+integer width = 457
+integer height = 132
+integer taborder = 20
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "none"
+end type
 
 type vsb_1 from vscrollbar within w_001
 integer x = 3154
